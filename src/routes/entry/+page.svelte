@@ -65,7 +65,7 @@
     </Card.Header>
 
     <Card.Content>
-      <form on:submit={submitUrl} class="space-y-4">
+      <form onsubmit={submitUrl} class="space-y-4">
         <div class="space-y-2">
           <Input
             type="url"
