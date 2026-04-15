@@ -1,8 +1,11 @@
 <script lang="ts">
   import { invoke } from "@tauri-apps/api/core";
+  import { initializeYtDlp } from "$lib/yt-dlp";
 
   let name = $state("");
   let greetMsg = $state("");
+
+  initializeYtDlp();
 
   async function greet(event: Event) {
     event.preventDefault();
