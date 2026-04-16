@@ -9,10 +9,7 @@
 		"fs:default",
 		{
 			"identifier": "fs:allow-exists",
-			"allow": [
-				{ "path": "$APPDATA/yt-dlp" },
-				{ "path": "$APPDATA/yt-dlp/yt-dlp.exe" }
-			]
+			"allow": [{ "path": "$APPDATA/yt-dlp" }, { "path": "$APPDATA/yt-dlp/yt-dlp.exe" }]
 		},
 		{
 			"identifier": "fs:allow-write-file",
