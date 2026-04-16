@@ -48,7 +48,7 @@
 			"allow": [
 				{
 					"name": "run-yt-dlp-version",
-					"cmd": "yt-dlp",
+					"cmd": "$APPDATA/yt-dlp/yt-dlp.exe",
 					"args": ["--version"]
 				}
 			]
