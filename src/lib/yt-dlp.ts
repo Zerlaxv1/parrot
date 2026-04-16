@@ -43,11 +43,22 @@ async function downloadYtDlpBinary() {
 }
 
 export async function initializeYtDlp() {
-	const YTDLPBinary: boolean = await checkYtDlpBinary();
-	if (!YTDLPBinary) {
-		console.log("yt-dlp binary not found. Downloading...");
-		await downloadYtDlpBinary();
-	} else {
-		// execute yt-dlp --version to check version, if the version is outdated => download the latest version
+	try {
+		const YTDLPBinary: boolean = await checkYtDlpBinary();
+		if (!YTDLPBinary) {
+			console.log("yt-dlp binary not found. Downloading...");
+			await downloadYtDlpBinary();
+			return;
+		}
+
+		// Execute yt-dlp --version to validate the installed binary.
+		const command = Command.create("run-yt-dlp-version", ["--version"]);
+		const output = await command.execute();
+		console.log("yt-dlp version:", output.stdout.trim());
+		if (output.stderr.trim()) {
+			console.log(output.stderr.trim());
+		}
+	} catch (error) {
+		console.error("Failed to initialize yt-dlp:", error);
 	}
 }
