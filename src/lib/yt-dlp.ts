@@ -1,5 +1,6 @@
 import { exists, writeFile, mkdir, BaseDirectory } from "@tauri-apps/plugin-fs";
 import { fetch } from "@tauri-apps/plugin-http";
+import { Command } from "@tauri-apps/plugin-shell";
 
 // use path api : https://v2.tauri.app/plugin/file-system/#usage
 
@@ -47,6 +48,6 @@ export async function initializeYtDlp() {
 		console.log("yt-dlp binary not found. Downloading...");
 		await downloadYtDlpBinary();
 	} else {
-		console.log("yt-dlp binary already exists.");
+		// execute yt-dlp --version to check version, if the version is outdated => download the latest version
 	}
 }
