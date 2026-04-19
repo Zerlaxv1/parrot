@@ -39,9 +39,6 @@
     try {
       isProcessing = true;
 
-      // later:
-      // await invoke("save_url", { url: trimmedUrl });
-
       await sleep(2500);
 
       successMsg = "Done.";
